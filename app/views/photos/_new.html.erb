@@ -1,0 +1,24 @@
+
+<%= form_for @photo, :url => photos_path, :html => { :multipart => true } do |f| %>
+	<p>
+		add photos to album
+	</p>
+	<p>
+		<%= f.label :name %> : 
+    	<%= f.text_field :name%>
+	</p>
+	<p>
+		<%= f.label :avatar %> : 
+    	<%= f.file_field :avatar %>
+    	<%= f.hidden_field :album_id, :value => session[:current_album_id]%>
+
+	</p>
+
+	<br><%= f.submit%>
+	<br>
+	show all albums : 
+	<%=link_to 'all albums', albums_path , :method =>:get  %>
+	<br>
+	<%= link_to 'Sign out', destroy_user_session_path , :method => :delete %>
+	<%= current_user.email%>
+<% end %>

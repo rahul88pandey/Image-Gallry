@@ -1,0 +1,50 @@
+<fieldset>
+<legend>Create Album</legend>
+<%= form_for @album ,url: albums_path do |f| %>
+	
+	<div class="row form-group">
+		<div class="col-sm-5">
+			<%= f.label :name%> : 
+			<%= f.text_field :name%>
+		</div>
+		<div class="col-sm-5 col-sm-offset-1">
+			<%= f.label :description%> : 
+			<%= f.text_field :description%>
+		</div>
+	</div>
+	<hr>
+	<%= f.fields_for :photos do |photo_fields|%>
+		<div id="button">
+			<p>
+				<div class="row form-group">
+					<div class="col-sm-5">
+						<%= photo_fields.label 'Pic_Name'%> : 
+						<%= photo_fields.text_field :name%>
+					</div>
+				</div><hr>
+				<div class="row form-group">
+					<div class="col-sm-5">
+						<%= photo_fields.label :avatar %>:
+	    				<%= photo_fields.file_field :avatar %>
+	    			</div>
+    			</div><hr>
+    			<%= photo_fields.fields_for :tags do |tag_fields|%>
+    			<div class="row form-group">
+					<div class="col-sm-5">
+	    				<%= tag_fields.label :name%> : 
+    					<%= tag_fields.text_field :name%>
+    				</div>
+    			</div><hr>
+    			<%end%>
+    		</p>
+    	</div>
+    <%end%>
+    <div class="row form-group">
+		<div class="col-sm-5">
+			<%= tag "input", { "type" => "button", "value" => "Add more photos", "onclick"=> "add()" } %>
+	<br><br>
+			<%= f.submit%>
+		</div>
+	</div>
+<% end %>
+</fieldset>

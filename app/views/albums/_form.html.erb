@@ -1,0 +1,22 @@
+<%= form_for @album ,url: albums_path do |f| %>
+
+	<%= f.label :name%><br>
+	<%= f.text_field :name%><br><br>
+	<%= f.label :description%><br>
+	<%= f.text_area :description%>
+
+	<%= f.fields_for :photo do |photo_fields|%>
+	<p>
+		<%= photo_fields.label :avatar %> : 
+    	<%= photo_fields.file_field :avatar %>
+    <%end%>
+	</p>
+	<br><br><%= f.submit :create%>
+	
+	<br>
+	show all albums : 
+	<%=link_to 'all albums', albums_path , :method =>:get  %>
+	<br>
+	<%= link_to 'Sign out', destroy_user_session_path , :method => :delete %>
+	<%= current_user.email%>
+<% end %>

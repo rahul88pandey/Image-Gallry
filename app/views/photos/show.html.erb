@@ -1,0 +1,5 @@
+
+<%= session[:current_album_id]%>
+<br>
+<%= image_tag @photo.avatar.url(:thumb) %>
+<%= link_to 'delete' ,photo_path, method: :delete%>/<%= link_to 'edit' ,edit_photo_path%>

@@ -1,0 +1,18 @@
+<strong>Name</strong> : 
+	<%= @album.name%>
+<br>
+<strong>Id</strong> : 
+<%=@album.id%>
+<br>
+<strong>Description</strong> : 
+	<%= @album.description%>
+<br>
+<strong>photos</strong> : <br>
+<div class="row">
+	<% @album.photos.each do |p|%>
+		<div class="col-sm-2 col-md-3">
+			<%= image_tag p.avatar.url(:thumb) %>
+		</div>
+	<%end%>
+</div>
+<br>
