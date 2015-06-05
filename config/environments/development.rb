@@ -49,7 +49,7 @@ domain: "gmail.com",
 authentication: "plain",
 enable_starttls_auto: true,
 user_name: "rpandey@enbake.com",
-password: "(***#!@%)%"
+password: "(%"
 }
 
   config.action_mailer.default_url_options ={ host: 'localhost', port:3000}
